@@ -1,0 +1,65 @@
+﻿<div ng-app="app">
+    <div ng-controller="ShopController">
+        <br />
+        <input type="text" placeholder="name" ng-model="shop.name" />
+        <input type="text" placeholder="address" ng-model="shop.address" />
+        <input type="text" placeholder="timeofwork" ng-model="shop.timeofwork" />
+        <button ng-click="addShop(shop)">Добавить магазин</button>
+        <table class="table table-bordered">
+            <tr ng-repeat="shop in shops">
+                <td>
+                    <span ng-hide="editing">
+                        {{shop.Name}}
+                    </span>
+                    <input type="text" placeholder="Id" ng-model="shop.Name" ng-hide="!editing"/>
+                </td>
+                <td>
+                    <span ng-hide="editing">
+                        {{shop.Address}}
+                    </span>
+                    <input type="text" placeholder="Id" ng-model="shop.Address" ng-hide="!editing"/>
+                </td>
+                <td>
+                    <span ng-hide="editing">
+                        {{shop.TimeOfWork}}
+                    </span>
+                    <input type="text" placeholder="Id" ng-model="shop.TimeOfWork" ng-hide="!editing"/>
+                </td>
+                <td>
+                    <button ng-click="deleteShop(shop)">удалить</button>
+                </td>
+                <td>
+                    <button ng-click="getGoods(shop.Id)">Товары</button>
+                </td>
+
+            </tr>
+        </table>
+        <input type="text" placeholder="Name"  ng-model="goods.name" />
+        <input type="text" placeholder="Description" ng-model="goods.description"/>
+
+        <button ng-click="addGoods(goods)">Добавить продукты в магазин</button>
+        <table class="table table-bordered">
+            <tr ng-repeat="goods in goodses">
+                <td>
+                    <span ng-hide="editing">
+                        {{goods.Name}}
+                 
+                    </span>
+                    <input type="text" placeholder="Id" ng-model="goods.name" ng-hide="!editing" />
+                </td>
+                <td>
+                    <span ng-hide="editing">
+                        {{goods.Description}}
+                    </span>
+                    <input type="text" placeholder="Id" ng-model="goods.address" ng-hide="!editing" />
+                </td>
+                <td>
+                    <button ng-click="deleteGoods(goods)">удалить</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/App/Scripts/shop.js"></script>
+</div>
